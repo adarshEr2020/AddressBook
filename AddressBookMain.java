@@ -8,6 +8,8 @@ class AddressBook {
 	private String pin;
 	private String mobileNo;
 	private String email;
+
+	// creating parameterized constructor
 	public AddressBook(String firstName, String lastName, String city, String state, String pin, String mobileNo,
 			String email) {
 		super();
@@ -19,6 +21,9 @@ class AddressBook {
 		this.mobileNo = mobileNo;
 		this.email = email;
 	}
+
+	// here using getter setter method 
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -62,6 +67,7 @@ class AddressBook {
 		this.email = email;
 	}
 
+	// overridding here
 	@Override
 	public String toString() {
 		return "AddressBook [firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", state=" + state
@@ -70,10 +76,58 @@ class AddressBook {
 
 }
 
+// here is main class
 public class AddressBookMain {
-	public static void main(String[] args) {
+	public static void main(String args[]) {
 
 		System.out.println("Welcome To Address Book System");
+		Scanner sc = new Scanner(System.in);
+
+		AddressBook add[] = new AddressBook[10];
+
+		int count = 0;
+		String firstName;
+		String lastName;
+		String city;
+		String state;
+		String pin;
+		String mobileNo;
+		String email;
+
+		System.out.println("Enter your choice");
+		System.out.println("1. Add Details 2. Update Details 3. Delete Details");
+		int choice = sc.nextInt();
+
+		while(true) {
+			switch(choice) {
+			case 1: System.out.println("Add Details");
+			System.out.println("Enter how many no of address you want to add");
+			int num=sc.nextInt();
+
+			for(int i = 0; i < num; i++) {
+				System.out.println("Enter first and last name");
+				firstName = sc.next();
+				lastName = sc.next();
+				System.out.println("Enter city");
+				city = sc.next();
+				System.out.println("Enter state");
+				state = sc.next();
+				System.out.println("Enter pin");
+				pin = sc.next();
+				System.out.println("Enter Mobile number");
+				mobileNo = sc.next();
+				System.out.println("Enter Email Id");
+				email = sc.next();
+
+				add[count] = new AddressBook(firstName, lastName, city, state, pin, mobileNo, email); 
+				count++;
+				break;
+				}
+			System.out.println("Details added successfully");
+
+			}
+		}
+
 	}
 
 }
