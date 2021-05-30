@@ -121,9 +121,9 @@ public static void main(String[] args) {
 
 				add[count] = new AddressBook(firstName, lastName, city, state, pin, mobileNo, email); 
 				count++;
-				break; 
 				}
 			System.out.println("Details added successfully");
+			 break;
 
 			// here updating details in address book
 			case 2: System.out.println("Update Details");
@@ -159,14 +159,30 @@ public static void main(String[] args) {
 					System.out.println("Enter Email Id");
 					email = sc.next();
 					add[i].setEmail(email);
-					break; 
-				}
+									}
 			}
 			System.out.println("Details updated successfully");
+			break;
+
+			// here deleting details in address book 
+			case 3: System.out.println("Delete Details");
+
+			System.out.println("Enter first name which you want to delete from address book");
+			firstName = sc.next();
+
+			for(int i = 0; i < count; i++) {
+				if(add[i] != null && add[i].getFirstName()==firstName) {
+					add[i] = null;
+				}
 			}
+			System.out.println("Details deleted successfully");
+			break;
+
+			default: System.out.println("You entered invalid choice");
+			}
+			break;
 		}
 
 	}
 
 }
-
